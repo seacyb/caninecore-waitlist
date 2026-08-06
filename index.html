@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CanineCore — Modern Operating System for Pet Care Businesses</title>
-    <meta name="description" content="Next-generation management platform for pet grooming salons, mobile vans, and boarding facilities. Built for speed, automated deposits, and zero no-shows.">
-    <meta name="keywords" content="pet business software, grooming software, mobile grooming app, pet boarding management, caninecore, pet care POS">
+    <title>CanineCore | Operations software for modern pet-care businesses</title>
+    <meta name="description" content="CanineCore is an operator-led platform in active development for grooming, boarding, daycare, and mobile pet-care businesses. Join the early access list.">
     <meta name="author" content="Seaside Cyber">
     <link rel="canonical" href="https://caninecore.app/">
 
@@ -15,14 +14,14 @@
     <!-- Open Graph / Facebook / LinkedIn / Slack Previews -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://caninecore.app/">
-    <meta property="og:title" content="CanineCore — Modern Operating System for Pet Care Businesses">
-    <meta property="og:description" content="Next-generation management platform for pet grooming salons, mobile vans, and boarding facilities. Built for speed, automated deposits, and zero no-shows.">
+    <meta property="og:title" content="CanineCore | Operations software for modern pet-care businesses">
+    <meta property="og:description" content="CanineCore is an operator-led platform in active development for grooming, boarding, daycare, and mobile pet-care businesses. Join the early access list.">
     <meta property="og:site_name" content="CanineCore">
 
     <!-- Twitter Previews -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="CanineCore — Modern Operating System for Pet Care Businesses">
-    <meta name="twitter:description" content="Next-generation management platform for pet grooming salons, mobile vans, and boarding facilities. Built for speed, automated deposits, and zero no-shows.">
+    <meta name="twitter:title" content="CanineCore | Operations software for modern pet-care businesses">
+    <meta name="twitter:description" content="CanineCore is an operator-led platform in active development for grooming, boarding, daycare, and mobile pet-care businesses. Join the early access list.">
 
     <!-- Structured Data (JSON-LD for Search Engines) -->
     <script type="application/ld+json">
@@ -32,7 +31,7 @@
       "name": "CanineCore",
       "operatingSystem": "Web",
       "applicationCategory": "BusinessApplication",
-      "description": "All-in-one management software for pet grooming salons, mobile van operators, and boarding facilities.",
+      "description": "An operator-led platform in active development for scheduling, records, workflows, and checkout in grooming, boarding, daycare, and mobile pet-care businesses.",
       "url": "https://caninecore.app",
       "creator": {
         "@type": "Organization",
@@ -51,176 +50,165 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <style>body { font-family: 'Inter', sans-serif; }</style>
+    <style>
+      body { 
+        font-family: 'Inter', sans-serif; 
+      }
+    </style>
 </head>
-<body class="bg-slate-950 text-white min-h-screen flex flex-col justify-between p-6 md:p-12">
+<body class="bg-slate-950 text-slate-50 min-h-screen flex flex-col justify-between">
     <!-- Header Navigation -->
-    <header class="flex justify-between items-center max-w-5xl w-full mx-auto">
-        <div class="flex items-center space-x-2">
-            <span class="text-2xl" aria-hidden="true">🐾</span>
-            <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">CanineCore</span>
-        </div>
-        <a href="https://caninecore.app/staff" class="text-xs font-semibold px-4 py-2 bg-slate-900 hover:bg-slate-800 text-sky-400 rounded-lg border border-slate-800 transition">
-            Staff Sign In →
-        </a>
-    </header>
-
-    <!-- Main Hero Section -->
-    <main class="max-w-4xl w-full mx-auto text-center my-auto py-12 md:py-16">
-        <div class="inline-block px-3 py-1 bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-medium rounded-full mb-6">
-            ⚡ Next-Gen Pet Care Platform
-        </div>
-        
-        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
-            The Modern Operating System for <span class="bg-gradient-to-r from-sky-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">Pet Business Owners</span>
-        </h1>
-        
-        <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
-            Grooming salons, mobile vans, and boarding facilities—reimagined. Built for speed, handle no-shows, and seamless POS checkouts.
-        </p>
-
-        <!-- Traction Stats Strip -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 max-w-3xl mx-auto">
-            <div class="px-4 py-3 bg-slate-900/50 border border-slate-800/80 rounded-lg">
-                <div class="text-sky-400 text-sm font-bold">Built in Salon</div>
-                <p class="text-xs text-slate-400 mt-1">Tested in active grooming environments</p>
-            </div>
-            <div class="px-4 py-3 bg-slate-900/50 border border-slate-800/80 rounded-lg">
-                <div class="text-sky-400 text-sm font-bold">100% Mobile</div>
-                <p class="text-xs text-slate-400 mt-1">Architected for van fleets & counter POS</p>
-            </div>
-            <div class="px-4 py-3 bg-slate-900/50 border border-slate-800/80 rounded-lg">
-                <div class="text-sky-400 text-sm font-bold">Private Beta</div>
-                <p class="text-xs text-slate-400 mt-1">Early access rollout underway</p>
-            </div>
-        </div>
-
-        <!-- Waitlist Form Container -->
-        <div id="form-container" class="max-w-md mx-auto mb-16">
-            <form action="https://submit-form.com/mTh4Aylw" method="POST" class="flex flex-col gap-4">
-                
-                <!-- Invisible Honeypot (Secondary bot trap) -->
-                <input type="checkbox" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off" />
-
-                <div class="flex flex-col sm:flex-row gap-3">
-                    <input type="email" name="email" placeholder="Enter your business email" required class="px-4 py-3 bg-slate-900 border border-slate-800 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-400/50 flex-1">
-                    <button type="submit" class="px-6 py-3 bg-sky-500 hover:bg-sky-400 text-slate-950 font-semibold rounded-lg transition duration-200 text-sm whitespace-nowrap">
-                        Request Access
-                    </button>
-                </div>
-
-                <!-- Turnstile Widget (Sends token to Formspark) -->
-                <div class="flex justify-center">
-                    <div class="cf-turnstile" data-sitekey="0x4AAAAAAA2I_Z_A_H_Z_H_Z_H" data-theme="dark"></div>
-                </div>
-
-            </form>
-            <p class="text-xs text-slate-500 mt-3">Join our early access list for founding member perks.</p>
-        </div>
-
-        <!-- High-Impact Value Pillars (Signals Product Scope to Visitors & Investors) -->
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left border-t border-slate-900 pt-12">
-            <div class="p-6 bg-slate-900/50 border border-slate-800/80 rounded-xl">
-                <div class="text-sky-400 text-base font-bold mb-2">⚡ Rapid POS & Checkouts</div>
-                <p class="text-xs text-slate-400 leading-relaxed">Process walk-ins, grooming add-ons, and tip splits in seconds from a tablet or mobile van dashboard.</p>
-            </div>
-            <div class="p-6 bg-slate-900/50 border border-slate-800/80 rounded-xl">
-                <div class="text-sky-400 text-base font-bold mb-2">🛡️ Automated No-Show Protection</div>
-                <p class="text-xs text-slate-400 leading-relaxed">Upfront deposit collection and SMS confirmations keep your schedule 100% full without phone tag.</p>
-            </div>
-            <div class="p-6 bg-slate-900/50 border border-slate-800/80 rounded-xl">
-                <div class="text-sky-400 text-base font-bold mb-2">🐾 Pet Health & Client Hub</div>
-                <p class="text-xs text-slate-400 leading-relaxed">Vaccination records, grooming notes, and coat requirements stored safely in a central owner portal.</p>
-            </div>
-        </section>
-    </main>
-
-    <!-- Execution Roadmap & Milestones Section -->
-    <section class="max-w-4xl w-full mx-auto border-t border-slate-900 pt-16 pb-8">
-        <h2 class="text-2xl md:text-3xl font-bold text-center mb-12 text-white">
-            Execution Roadmap & Milestones
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Q1 2026 -->
-            <div class="p-6 bg-slate-900/50 border border-slate-800/80 rounded-xl flex flex-col">
-                <div class="flex items-start justify-between mb-3">
-                    <div>
-                        <div class="text-sky-400 font-bold text-sm mb-1">Q1 2026</div>
-                        <p class="text-slate-300 text-sm font-semibold">Core Engine & Architecture Design</p>
-                    </div>
-                    <span class="text-lg" aria-label="completed">✅</span>
-                </div>
-                <p class="text-xs text-slate-400">Foundation built. Core infrastructure, database schemas, and API layer designed and deployed.</p>
-                <div class="mt-4 text-xs font-medium text-green-400/80">Status: Completed</div>
-            </div>
-
-            <!-- Q2 2026 -->
-            <div class="p-6 bg-slate-900/50 border border-sky-500/20 rounded-xl flex flex-col ring-1 ring-sky-500/10">
-                <div class="flex items-start justify-between mb-3">
-                    <div>
-                        <div class="text-sky-400 font-bold text-sm mb-1">Q2 2026</div>
-                        <p class="text-slate-300 text-sm font-semibold">Waitlist & Private Beta Onboarding</p>
-                    </div>
-                    <span class="text-lg" aria-label="in progress">⚡</span>
-                </div>
-                <p class="text-xs text-slate-400">Early adopter program live. Salon partners testing core features with live feedback loops.</p>
-                <div class="mt-4 text-xs font-medium text-sky-400/80">Status: In Progress</div>
-            </div>
-
-            <!-- Q3 2026 -->
-            <div class="p-6 bg-slate-900/50 border border-slate-800/80 rounded-xl flex flex-col">
-                <div class="flex items-start justify-between mb-3">
-                    <div>
-                        <div class="text-sky-400 font-bold text-sm mb-1">Q3 2026</div>
-                        <p class="text-slate-300 text-sm font-semibold">Mobile Fleet Sync & Payment Terminals</p>
-                    </div>
-                    <span class="text-lg" aria-label="planned">🗓️</span>
-                </div>
-                <p class="text-xs text-slate-400">Mobile van sync, real-time fleet tracking, and payment terminal integrations launched.</p>
-                <div class="mt-4 text-xs font-medium text-slate-400/80">Status: Planned</div>
-            </div>
-
-            <!-- Q4 2026 -->
-            <div class="p-6 bg-slate-900/50 border border-slate-800/80 rounded-xl flex flex-col">
-                <div class="flex items-start justify-between mb-3">
-                    <div>
-                        <div class="text-sky-400 font-bold text-sm mb-1">Q4 2026</div>
-                        <p class="text-slate-300 text-sm font-semibold">Public Launch & POS Integrations</p>
-                    </div>
-                    <span class="text-lg" aria-label="planned">🗓️</span>
-                </div>
-                <p class="text-xs text-slate-400">General availability launch with third-party POS and accounting software integrations.</p>
-                <div class="mt-4 text-xs font-medium text-slate-400/80">Status: Planned</div>
-            </div>
-        </div>
-    </section>
-
-<!-- Footer -->
-    <footer class="text-center text-xs text-slate-500 max-w-5xl w-full mx-auto space-y-4 border-t border-slate-900 pt-8">
-        <!-- Tech Stack Badges -->
-        <div class="flex flex-wrap items-center justify-center gap-2 pb-3">
-            <span class="text-slate-600 font-semibold mr-2">Built for Reliability:</span>
-            <span class="inline-flex items-center px-3 py-1 bg-slate-900/70 border border-slate-800/80 rounded-full text-slate-300 text-xs font-medium">☁️ Cloudflare Edge</span>
-            <span class="inline-flex items-center px-3 py-1 bg-slate-900/70 border border-slate-800/80 rounded-full text-slate-300 text-xs font-medium">💳 Stripe Payments</span>
-            <span class="inline-flex items-center px-3 py-1 bg-slate-900/70 border border-slate-800/80 rounded-full text-slate-300 text-xs font-medium">🏗️ AWS Cloud</span>
-            <span class="inline-flex items-center px-3 py-1 bg-slate-900/70 border border-slate-800/80 rounded-full text-slate-300 text-xs font-medium">📱 Real-Time SMS</span>
-        </div>
-
-        <div class="flex items-center justify-center gap-4 flex-wrap">
-            <span>Direct Inquiries: <a href="mailto:founder@caninecore.app" class="text-sky-400 hover:underline">founder@caninecore.app</a></span>
-            <span class="text-slate-800">•</span>
-            <a href="https://www.facebook.com/caninecoreapp" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-slate-400 hover:text-sky-400 transition">
-                <svg class="w-4 h-4 fill-current text-sky-400" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-                <span>Follow us on Facebook</span>
+    <header class="border-b border-slate-800 px-6 md:px-12 py-6">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <a href="/" class="flex items-center gap-2.5">
+                <span class="text-2xl" aria-hidden="true">🐾</span>
+                <span class="text-lg font-semibold text-slate-100">CanineCore</span>
+            </a>
+            <a href="https://caninecore.app/staff" class="text-sm font-medium px-4 py-2 text-slate-300 bg-slate-900 hover:bg-slate-800 border border-slate-700 rounded-lg transition focus:outline-none focus:ring-2 focus:ring-sky-400">
+                Staff portal
             </a>
         </div>
-        <div>
-            CanineCore by <a href="https://seasidecyber.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 underline transition">Seaside Cyber</a>. All rights reserved.
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 px-6 md:px-12 py-16 md:py-24">
+        <div class="max-w-3xl mx-auto">
+            <!-- Eyebrow -->
+            <div class="text-sky-400 text-sm font-semibold tracking-wide uppercase mb-6">
+                Built for pet-care operators
+            </div>
+
+            <!-- Headline -->
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-50 mb-8 leading-tight">
+                Run grooming, boarding, daycare, and mobile care from one dependable workspace.
+            </h1>
+
+            <!-- Supporting Copy -->
+            <p class="text-lg text-slate-300 mb-10 max-w-2xl leading-relaxed">
+                CanineCore is being built from firsthand experience inside an operating grooming and boarding business. The goal is to bring scheduling, customer and pet records, care workflows, communications, public websites, booking, and checkout into one secure system.
+            </p>
+
+            <!-- Status Line -->
+            <div class="text-sm text-slate-400 mb-12 flex flex-wrap gap-3">
+                <span>Founder-led</span>
+                <span class="text-slate-600">•</span>
+                <span>In active development</span>
+                <span class="text-slate-600">•</span>
+                <span>Waitlist open</span>
+            </div>
+
+            <!-- Waitlist Form -->
+            <div class="mb-16 max-w-md">
+                <form action="https://submit-form.com/mTh4Aylw" method="POST" class="space-y-4">
+                    <input type="checkbox" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off" />
+                    
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <input 
+                            type="email" 
+                            name="email" 
+                            placeholder="your@business.email" 
+                            required 
+                            aria-label="Email address"
+                            class="flex-1 px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-slate-50 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent"
+                        />
+                        <button 
+                            type="submit" 
+                            class="px-6 py-3 bg-sky-500 hover:bg-sky-400 text-slate-950 font-semibold rounded-lg transition focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 focus:ring-offset-slate-950 whitespace-nowrap"
+                        >
+                            Join the list
+                        </button>
+                    </div>
+
+                    <div class="flex justify-center pt-2">
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAAA2I_Z_A_H_Z_H_Z_H" data-theme="dark"></div>
+                    </div>
+                </form>
+                <p class="text-xs text-slate-500 mt-4">
+                    Join the early access list for occasional product updates and testing opportunities.
+                </p>
+            </div>
+
+            <!-- Product Direction Cards -->
+            <section class="mb-20">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-lg">
+                        <h3 class="text-slate-50 font-semibold mb-2 text-base">Today's work, clearly organized</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Start with the day's bookings, tasks, and customer messages instead of scattered dashboards.
+                        </p>
+                    </div>
+                    <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-lg">
+                        <h3 class="text-slate-50 font-semibold mb-2 text-base">One reliable customer and pet record</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Keep household, pet, vaccine, care, and visit information connected.
+                        </p>
+                    </div>
+                    <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-lg">
+                        <h3 class="text-slate-50 font-semibold mb-2 text-base">Scheduling built for real operations</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Coordinate grooming, boarding, daycare, and future mobile routes without forcing every business into the same workflow.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Development Status Section -->
+            <section class="border-t border-slate-800 pt-12">
+                <h2 class="text-2xl font-bold text-slate-50 mb-2">Built carefully, validated in stages</h2>
+                <p class="text-slate-400 text-sm mb-8">
+                    Product scope and sequencing may change as testing continues.
+                </p>
+
+                <div class="space-y-4">
+                    <div class="p-6 bg-slate-900/30 border border-slate-800 rounded-lg">
+                        <h3 class="text-slate-50 font-semibold mb-1">Foundation built</h3>
+                        <p class="text-slate-400 text-sm">
+                            Tenant isolation, customer and pet records, scheduling foundations, and organization websites.
+                        </p>
+                    </div>
+                    <div class="p-6 bg-slate-900/30 border border-slate-800 rounded-lg">
+                        <h3 class="text-slate-50 font-semibold mb-1">Validating now</h3>
+                        <p class="text-slate-400 text-sm">
+                            Owner and staff workflows, public-site tools, media management, and the first complete walkthrough.
+                        </p>
+                    </div>
+                    <div class="p-6 bg-slate-900/30 border border-slate-800 rounded-lg">
+                        <h3 class="text-slate-50 font-semibold mb-1">Up next</h3>
+                        <p class="text-slate-400 text-sm">
+                            Customer account creation, online booking, daily tasks, and message follow-up.
+                        </p>
+                    </div>
+                    <div class="p-6 bg-slate-900/30 border border-slate-800 rounded-lg">
+                        <h3 class="text-slate-50 font-semibold mb-1">Planned after validation</h3>
+                        <p class="text-slate-400 text-sm">
+                            Daycare scheduling, payments, subscriptions, mobile routing, and on-demand service routes.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 px-6 md:px-12 py-8">
+        <div class="max-w-5xl mx-auto text-center text-xs text-slate-500 space-y-3">
+            <div class="flex items-center justify-center gap-3 flex-wrap">
+                <span>
+                    Questions? <a href="mailto:founder@caninecore.app" class="text-sky-400 hover:text-sky-300 transition">founder@caninecore.app</a>
+                </span>
+                <span class="text-slate-700">•</span>
+                <a href="https://www.facebook.com/caninecoreapp" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-slate-400 hover:text-sky-400 transition focus:outline-none focus:ring-2 focus:ring-sky-400 rounded">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    <span>Facebook</span>
+                </a>
+            </div>
+            <div>
+                CanineCore by <a href="https://seasidecyber.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 underline transition">Seaside Cyber</a>. All rights reserved.
+            </div>
         </div>
     </footer>
 
