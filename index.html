@@ -1,142 +1,1415 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CanineCore — Modern Operating System for Pet Care Businesses</title>
-    <meta name="description" content="Next-generation management platform for pet grooming salons, mobile vans, and boarding facilities. Built for speed, automated deposits, and zero no-shows.">
-    <meta name="keywords" content="pet business software, grooming software, mobile grooming app, pet boarding management, caninecore, pet care POS">
-    <meta name="author" content="Seaside Cyber">
-    <link rel="canonical" href="https://caninecore.app/">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CanineCore | The operating system for modern pet care</title>
+    <meta
+      name="description"
+      content="CanineCore brings scheduling, customer and pet records, communications, public websites, booking, and daily operations into one secure workspace for pet-care businesses."
+    />
+    <meta name="author" content="Seaside Cyber" />
+    <meta name="theme-color" content="#07101f" />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://caninecore.app/" />
 
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://caninecore.app/" />
+    <meta property="og:site_name" content="CanineCore" />
+    <meta
+      property="og:title"
+      content="CanineCore | The operating system for modern pet care"
+    />
+    <meta
+      property="og:description"
+      content="One dependable workspace for grooming, boarding, daycare, mobile care, customer records, communications, and booking."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="CanineCore | The operating system for modern pet care"
+    />
+    <meta
+      name="twitter:description"
+      content="One dependable workspace for grooming, boarding, daycare, mobile care, customer records, communications, and booking."
+    />
 
-    <!-- Open Graph / Facebook / LinkedIn / Slack Previews -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://caninecore.app/">
-    <meta property="og:title" content="CanineCore — Modern Operating System for Pet Care Businesses">
-    <meta property="og:description" content="Next-generation management platform for pet grooming salons, mobile vans, and boarding facilities. Built for speed, automated deposits, and zero no-shows.">
-    <meta property="og:site_name" content="CanineCore">
-
-    <!-- Twitter Previews -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="CanineCore — Modern Operating System for Pet Care Businesses">
-    <meta name="twitter:description" content="Next-generation management platform for pet grooming salons, mobile vans, and boarding facilities. Built for speed, automated deposits, and zero no-shows.">
-
-    <!-- Structured Data (JSON-LD for Search Engines) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "CanineCore",
-      "operatingSystem": "Web",
-      "applicationCategory": "BusinessApplication",
-      "description": "All-in-one management software for pet grooming salons, mobile van operators, and boarding facilities.",
-      "url": "https://caninecore.app",
-      "creator": {
-        "@type": "Organization",
-        "name": "Seaside Cyber",
-        "url": "https://seasidecyber.com"
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "CanineCore",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://caninecore.app/",
+        "description": "An operator-led business operations platform for grooming, boarding, daycare, and mobile pet-care businesses.",
+        "creator": {
+          "@type": "Organization",
+          "name": "Seaside Cyber",
+          "url": "https://seasidecyber.com/"
+        }
       }
-    }
     </script>
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Cloudflare Turnstile Script -->
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <style>
+      :root {
+        color-scheme: dark;
+        --background: #07101f;
+        --background-deep: #040914;
+        --surface: #0d182a;
+        --surface-raised: #111f35;
+        --surface-soft: #0a1424;
+        --border: #24344d;
+        --border-bright: #36506f;
+        --text: #f8fafc;
+        --text-soft: #cbd5e1;
+        --muted: #8fa1b8;
+        --blue: #38bdf8;
+        --blue-strong: #0284c7;
+        --blue-dark: #0369a1;
+        --amber: #f59e0b;
+        --coral: #f43f5e;
+        --success: #34d399;
+        --shadow: 0 24px 80px rgb(0 0 0 / 0.32);
+        --radius: 20px;
+        --max-width: 1180px;
+      }
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <style>body { font-family: 'Inter', sans-serif; }</style>
-</head>
-<body class="bg-slate-950 text-white min-h-screen flex flex-col justify-between p-6 md:p-12">
-    <!-- Header Navigation -->
-    <header class="flex justify-between items-center max-w-5xl w-full mx-auto">
-        <div class="flex items-center space-x-2">
-            <span class="text-2xl" aria-hidden="true">🐾</span>
-            <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">CanineCore</span>
-        </div>
-        <a href="https://caninecore.app/staff" class="text-xs font-semibold px-4 py-2 bg-slate-900 hover:bg-slate-800 text-sky-400 rounded-lg border border-slate-800 transition">
-            Staff Sign In →
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        background:
+          radial-gradient(
+            circle at 78% 8%,
+            rgb(2 132 199 / 0.16),
+            transparent 30rem
+          ),
+          linear-gradient(
+            180deg,
+            var(--background-deep),
+            var(--background) 44%,
+            #081426
+          );
+        color: var(--text);
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        line-height: 1.6;
+      }
+
+      body::before {
+        position: fixed;
+        z-index: -1;
+        inset: 0;
+        background-image:
+          linear-gradient(rgb(148 163 184 / 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgb(148 163 184 / 0.035) 1px, transparent 1px);
+        background-size: 48px 48px;
+        mask-image: linear-gradient(to bottom, black, transparent 72%);
+        content: "";
+        pointer-events: none;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      button,
+      input {
+        font: inherit;
+      }
+
+      img,
+      svg {
+        display: block;
+      }
+
+      .container {
+        width: min(calc(100% - 40px), var(--max-width));
+        margin-inline: auto;
+      }
+
+      .skip-link {
+        position: fixed;
+        z-index: 100;
+        top: 12px;
+        left: 12px;
+        padding: 10px 14px;
+        transform: translateY(-160%);
+        border-radius: 8px;
+        background: var(--text);
+        color: var(--background);
+        font-weight: 700;
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      .site-header {
+        position: relative;
+        z-index: 10;
+        border-bottom: 1px solid rgb(148 163 184 / 0.14);
+        background: rgb(4 9 20 / 0.78);
+        backdrop-filter: blur(16px);
+      }
+
+      .header-inner {
+        display: flex;
+        min-height: 76px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--text);
+        font-size: 1.08rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        border: 1px solid rgb(56 189 248 / 0.5);
+        border-radius: 11px;
+        background: #0c2035;
+        box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.04);
+      }
+
+      .brand-mark svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .text-link {
+        color: var(--text-soft);
+        font-size: 0.9rem;
+        font-weight: 650;
+        text-decoration: none;
+      }
+
+      .text-link:hover {
+        color: var(--blue);
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 46px;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 0 18px;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 800;
+        line-height: 1;
+        text-decoration: none;
+        transition:
+          transform 150ms ease,
+          background 150ms ease,
+          border-color 150ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+      }
+
+      .button-primary {
+        background: var(--blue);
+        color: #062033;
+      }
+
+      .button-primary:hover {
+        background: #7dd3fc;
+      }
+
+      .button-secondary {
+        border-color: var(--border-bright);
+        background: rgb(17 31 53 / 0.82);
+        color: var(--text);
+      }
+
+      .button-secondary:hover {
+        border-color: var(--blue-strong);
+        background: var(--surface-raised);
+      }
+
+      .button:disabled {
+        cursor: not-allowed;
+        opacity: 0.55;
+        transform: none;
+      }
+
+      :focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 3px;
+      }
+
+      .hero {
+        padding: clamp(72px, 10vw, 128px) 0 88px;
+      }
+
+      .hero-grid {
+        display: grid;
+        align-items: center;
+        gap: clamp(48px, 7vw, 92px);
+        grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin: 0 0 22px;
+        color: var(--blue);
+        font-size: 0.78rem;
+        font-weight: 850;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--success);
+        box-shadow: 0 0 0 5px rgb(52 211 153 / 0.12);
+        content: "";
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 760px;
+        margin-bottom: 25px;
+        font-size: clamp(2.8rem, 6vw, 5rem);
+        line-height: 0.98;
+        letter-spacing: -0.058em;
+      }
+
+      .hero-lead {
+        max-width: 680px;
+        margin-bottom: 30px;
+        color: var(--text-soft);
+        font-size: clamp(1.05rem, 1.7vw, 1.24rem);
+        line-height: 1.75;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+
+      .proof-line {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 18px;
+        color: var(--muted);
+        font-size: 0.87rem;
+      }
+
+      .proof-line span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .proof-line span::before {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--blue);
+        content: "";
+      }
+
+      .product-preview {
+        position: relative;
+      }
+
+      .product-preview::before {
+        position: absolute;
+        z-index: -1;
+        inset: 15% -10% -8% 16%;
+        border-radius: 50%;
+        background: rgb(2 132 199 / 0.2);
+        filter: blur(70px);
+        content: "";
+      }
+
+      .app-frame {
+        overflow: hidden;
+        border: 1px solid var(--border-bright);
+        border-radius: 22px;
+        background: #0a1424;
+        box-shadow: var(--shadow);
+      }
+
+      .app-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 18px;
+        border-bottom: 1px solid var(--border);
+        background: #0d192a;
+      }
+
+      .window-dots {
+        display: flex;
+        gap: 6px;
+      }
+
+      .window-dots span {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #40516a;
+      }
+
+      .preview-label {
+        color: var(--muted);
+        font-size: 0.7rem;
+        font-weight: 750;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .app-body {
+        display: grid;
+        min-height: 430px;
+        grid-template-columns: 72px 1fr;
+      }
+
+      .mini-nav {
+        display: grid;
+        align-content: start;
+        gap: 12px;
+        padding: 20px 15px;
+        border-right: 1px solid var(--border);
+        background: #08111f;
+      }
+
+      .mini-nav span {
+        height: 34px;
+        border-radius: 8px;
+        background: #14243a;
+      }
+
+      .mini-nav span:first-child {
+        background: var(--blue-dark);
+      }
+
+      .dashboard {
+        padding: 24px;
+      }
+
+      .dashboard-kicker {
+        margin-bottom: 5px;
+        color: var(--blue);
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .dashboard h2 {
+        margin-bottom: 20px;
+        font-size: 1.35rem;
+        letter-spacing: -0.025em;
+      }
+
+      .schedule-card,
+      .task-card,
+      .message-card {
+        border: 1px solid var(--border);
+        border-radius: 13px;
+        background: var(--surface);
+      }
+
+      .schedule-card {
+        margin-bottom: 14px;
+        padding: 16px;
+      }
+
+      .schedule-heading,
+      .schedule-row {
+        display: grid;
+        align-items: center;
+        gap: 10px;
+        grid-template-columns: 55px 1fr auto;
+      }
+
+      .schedule-heading {
+        margin-bottom: 8px;
+        color: var(--muted);
+        font-size: 0.7rem;
+        font-weight: 750;
+        text-transform: uppercase;
+      }
+
+      .schedule-row {
+        padding: 11px 0;
+        border-top: 1px solid rgb(148 163 184 / 0.1);
+        color: var(--text-soft);
+        font-size: 0.78rem;
+      }
+
+      .schedule-row strong {
+        color: var(--text);
+      }
+
+      .status-bar {
+        width: 42px;
+        height: 6px;
+        border-radius: 999px;
+        background: var(--success);
+      }
+
+      .dashboard-lower {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: 1fr 0.85fr;
+      }
+
+      .task-card,
+      .message-card {
+        padding: 15px;
+      }
+
+      .mini-title {
+        margin-bottom: 11px;
+        color: var(--text);
+        font-size: 0.78rem;
+        font-weight: 800;
+      }
+
+      .task-line,
+      .message-line {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        margin-top: 9px;
+        color: var(--muted);
+        font-size: 0.7rem;
+      }
+
+      .task-line::before {
+        width: 12px;
+        height: 12px;
+        border: 1px solid #526781;
+        border-radius: 4px;
+        content: "";
+      }
+
+      .message-line::before {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--coral);
+        content: "";
+      }
+
+      .section {
+        padding: 96px 0;
+      }
+
+      .section-tight {
+        padding-top: 24px;
+      }
+
+      .section-heading {
+        max-width: 760px;
+        margin-bottom: 42px;
+      }
+
+      .section-heading h2 {
+        margin-bottom: 16px;
+        font-size: clamp(2rem, 4vw, 3.25rem);
+        line-height: 1.08;
+        letter-spacing: -0.045em;
+      }
+
+      .section-heading p {
+        color: var(--text-soft);
+        font-size: 1.05rem;
+      }
+
+      .feature-grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .feature-card {
+        min-height: 235px;
+        padding: 26px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: linear-gradient(
+          180deg,
+          rgb(17 31 53 / 0.74),
+          rgb(10 20 36 / 0.82)
+        );
+      }
+
+      .feature-number {
+        display: inline-grid;
+        width: 35px;
+        height: 35px;
+        margin-bottom: 30px;
+        place-items: center;
+        border: 1px solid var(--border-bright);
+        border-radius: 9px;
+        color: var(--blue);
+        font-size: 0.72rem;
+        font-weight: 850;
+      }
+
+      .feature-card h3 {
+        margin-bottom: 10px;
+        font-size: 1.02rem;
+      }
+
+      .feature-card p {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .operator-section {
+        border-block: 1px solid rgb(148 163 184 / 0.14);
+        background: rgb(13 24 42 / 0.56);
+      }
+
+      .operator-grid {
+        display: grid;
+        align-items: center;
+        gap: 64px;
+        grid-template-columns: 0.9fr 1.1fr;
+      }
+
+      .operator-note {
+        padding: 32px;
+        border-left: 3px solid var(--blue);
+        background: var(--surface-soft);
+      }
+
+      .operator-note p {
+        margin: 0;
+        color: var(--text-soft);
+        font-size: 1.06rem;
+      }
+
+      .operator-note strong {
+        display: block;
+        margin-top: 18px;
+        color: var(--text);
+        font-size: 0.9rem;
+      }
+
+      .status-grid {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .status-card {
+        position: relative;
+        padding: 23px 20px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface-soft);
+      }
+
+      .status-card::before {
+        display: block;
+        width: 100%;
+        height: 3px;
+        margin-bottom: 20px;
+        border-radius: 999px;
+        background: #31445e;
+        content: "";
+      }
+
+      .status-card.complete::before {
+        background: var(--success);
+      }
+
+      .status-card.active::before {
+        background: var(--blue);
+      }
+
+      .status-label {
+        margin-bottom: 8px;
+        color: var(--muted);
+        font-size: 0.7rem;
+        font-weight: 850;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .status-card h3 {
+        margin-bottom: 8px;
+        font-size: 0.98rem;
+      }
+
+      .status-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.83rem;
+      }
+
+      .partner-panel {
+        display: grid;
+        gap: 40px;
+        padding: clamp(30px, 5vw, 52px);
+        border: 1px solid var(--border-bright);
+        border-radius: var(--radius);
+        background: #0d1c31;
+        box-shadow: var(--shadow);
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .partner-panel h2 {
+        margin-bottom: 14px;
+        font-size: clamp(1.8rem, 3vw, 2.7rem);
+        line-height: 1.1;
+        letter-spacing: -0.04em;
+      }
+
+      .partner-panel p {
+        margin-bottom: 0;
+        color: var(--text-soft);
+      }
+
+      .needs-grid {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .need {
+        padding: 15px;
+        border: 1px solid var(--border);
+        border-radius: 11px;
+        background: rgb(7 16 31 / 0.72);
+        color: var(--text-soft);
+        font-size: 0.84rem;
+        font-weight: 700;
+      }
+
+      .waitlist-panel {
+        display: grid;
+        align-items: center;
+        gap: 42px;
+        padding: clamp(32px, 5vw, 56px);
+        border: 1px solid var(--border-bright);
+        border-radius: var(--radius);
+        background: #0b1a2d;
+        grid-template-columns: 0.9fr 1.1fr;
+      }
+
+      .waitlist-panel h2 {
+        margin-bottom: 12px;
+        font-size: clamp(1.9rem, 3vw, 2.8rem);
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+      }
+
+      .waitlist-panel p {
+        margin: 0;
+        color: var(--text-soft);
+      }
+
+      .waitlist-form {
+        display: grid;
+        gap: 13px;
+      }
+
+      .form-row {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr auto;
+      }
+
+      .email-input {
+        min-width: 0;
+        min-height: 50px;
+        padding: 0 15px;
+        border: 1px solid var(--border-bright);
+        border-radius: 10px;
+        background: #07111f;
+        color: var(--text);
+      }
+
+      .email-input::placeholder {
+        color: #6f829b;
+      }
+
+      .turnstile-wrap {
+        min-height: 66px;
+      }
+
+      .form-message {
+        min-height: 22px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.78rem;
+      }
+
+      .form-message.error {
+        color: #fda4af;
+      }
+
+      .honeypot {
+        position: absolute;
+        left: -10000px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+
+      .site-footer {
+        margin-top: 96px;
+        border-top: 1px solid rgb(148 163 184 / 0.14);
+        background: #040914;
+      }
+
+      .footer-inner {
+        display: grid;
+        align-items: center;
+        gap: 24px;
+        padding-block: 34px;
+        grid-template-columns: auto 1fr auto;
+      }
+
+      .footer-copy {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.8rem;
+        text-align: center;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 14px;
+      }
+
+      .footer-links a {
+        color: var(--text-soft);
+        font-size: 0.82rem;
+        text-decoration: none;
+      }
+
+      .footer-links a:hover {
+        color: var(--blue);
+      }
+
+      @media (max-width: 980px) {
+        .hero-grid,
+        .operator-grid,
+        .partner-panel,
+        .waitlist-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-grid {
+          gap: 64px;
+        }
+
+        .product-preview {
+          width: min(100%, 650px);
+        }
+
+        .feature-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .status-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .partner-panel,
+        .waitlist-panel {
+          gap: 28px;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .container {
+          width: min(calc(100% - 28px), var(--max-width));
+        }
+
+        .header-inner {
+          min-height: 68px;
+        }
+
+        .header-actions .text-link {
+          display: none;
+        }
+
+        .header-actions .button {
+          min-height: 40px;
+          padding-inline: 13px;
+          font-size: 0.8rem;
+        }
+
+        .hero {
+          padding-top: 64px;
+        }
+
+        h1 {
+          font-size: clamp(2.55rem, 14vw, 4rem);
+        }
+
+        .feature-grid,
+        .status-grid,
+        .needs-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .app-body {
+          grid-template-columns: 54px 1fr;
+        }
+
+        .mini-nav {
+          padding-inline: 10px;
+        }
+
+        .dashboard {
+          padding: 17px;
+        }
+
+        .dashboard-lower {
+          grid-template-columns: 1fr;
+        }
+
+        .schedule-heading,
+        .schedule-row {
+          grid-template-columns: 44px 1fr;
+        }
+
+        .schedule-heading span:last-child,
+        .schedule-row .status-bar {
+          display: none;
+        }
+
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+
+        .form-row .button {
+          width: 100%;
+        }
+
+        .footer-inner {
+          justify-items: center;
+          grid-template-columns: 1fr;
+        }
+
+        .footer-links {
+          justify-content: center;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="CanineCore home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path
+                d="M22.75 10.5a8.25 8.25 0 1 0 0 11"
+                stroke="#38bdf8"
+                stroke-width="3.25"
+                stroke-linecap="round"
+              />
+              <circle cx="23.5" cy="10.5" r="2.25" fill="#34d399" />
+              <circle cx="23.5" cy="21.5" r="2.25" fill="#f59e0b" />
+            </svg>
+          </span>
+          <span>CanineCore</span>
         </a>
+
+        <nav class="header-actions" aria-label="Primary navigation">
+          <a class="text-link" href="mailto:founder@caninecore.app"
+            >Founder inquiries</a
+          >
+          <a class="button button-secondary" href="/staff/"
+            >Private beta portal</a
+          >
+        </nav>
+      </div>
     </header>
 
-    <!-- Main Hero Section -->
-    <main class="max-w-4xl w-full mx-auto text-center my-auto py-12 md:py-16">
-        <div class="inline-block px-3 py-1 bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-medium rounded-full mb-6">
-            ⚡ Next-Gen Pet Care Platform
-        </div>
-        
-        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
-            The Modern Operating System for <span class="bg-gradient-to-r from-sky-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">Pet Business Owners</span>
-        </h1>
-        
-        <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
-            Grooming salons, mobile vans, and boarding facilities—reimagined. Built for speed, handle no-shows, and seamless POS checkouts.
-        </p>
+    <main id="main">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow">Private beta development</p>
+            <h1>The operating system for modern pet care.</h1>
+            <p class="hero-lead">
+              CanineCore is bringing scheduling, customer and pet records,
+              communications, public websites, booking, checkout, and mobile
+              operations into one dependable workspace.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#early-access"
+                >Join early access</a
+              >
+              <a class="button button-secondary" href="#product"
+                >Explore the product</a
+              >
+            </div>
+            <div class="proof-line" role="list" aria-label="Product status">
+              <span role="listitem">Built by a working pet-care operator</span>
+              <span role="listitem">Security-first foundation</span>
+              <span role="listitem">Private validation underway</span>
+            </div>
+          </div>
 
-        <!-- Waitlist Form Container -->
-        <div id="form-container" class="max-w-md mx-auto mb-16">
-            <form action="https://submit-form.com/YhW75ms8V" method="POST" class="flex flex-col gap-4">
-                
-                <!-- Invisible Honeypot (Secondary bot trap) -->
-                <input type="checkbox" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off" />
-
-                <div class="flex flex-col sm:flex-row gap-3">
-                    <input type="email" name="email" placeholder="Enter your business email" required class="px-4 py-3 bg-slate-900 border border-slate-800 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500 flex-1 text-sm">
-                    <button type="submit" class="px-6 py-3 bg-sky-500 hover:bg-sky-400 text-slate-950 font-semibold rounded-lg transition duration-200 text-sm whitespace-nowrap">
-                        Request Access
-                    </button>
+          <div
+            class="product-preview"
+            role="region"
+            aria-label="CanineCore interface preview"
+          >
+            <div class="app-frame">
+              <div class="app-toolbar">
+                <div class="window-dots" aria-hidden="true">
+                  <span></span><span></span><span></span>
                 </div>
-
-                <!-- Turnstile Widget (Sends token to Formspark) -->
-                <div class="flex justify-center">
-                    <div class="cf-turnstile" data-sitekey="0x4AAAAAAEGlSKs8S82qMOSk" data-theme="dark"></div>
+                <span class="preview-label">Product direction</span>
+              </div>
+              <div class="app-body">
+                <div class="mini-nav" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span
+                  ><span></span>
                 </div>
-
-            </form>
-            <p class="text-xs text-slate-500 mt-3">Join our early access list for founding member perks.</p>
+                <div class="dashboard">
+                  <p class="dashboard-kicker">Thursday operations</p>
+                  <h2>Today at a glance</h2>
+                  <div class="schedule-card">
+                    <div class="schedule-heading">
+                      <span>Time</span><span>Today's bookings</span
+                      ><span>Status</span>
+                    </div>
+                    <div class="schedule-row">
+                      <span>8:30</span><strong>Grooming visit</strong
+                      ><span class="status-bar"></span>
+                    </div>
+                    <div class="schedule-row">
+                      <span>10:00</span><strong>Boarding arrival</strong
+                      ><span class="status-bar"></span>
+                    </div>
+                    <div class="schedule-row">
+                      <span>1:30</span><strong>Mobile service stop</strong
+                      ><span class="status-bar"></span>
+                    </div>
+                  </div>
+                  <div class="dashboard-lower">
+                    <div class="task-card">
+                      <div class="mini-title">Team tasks</div>
+                      <div class="task-line">Confirm afternoon arrivals</div>
+                      <div class="task-line">Review vaccine document</div>
+                    </div>
+                    <div class="message-card">
+                      <div class="mini-title">Needs attention</div>
+                      <div class="message-line">New customer message</div>
+                      <div class="message-line">Booking follow-up</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <!-- High-Impact Value Pillars (Signals Product Scope to Visitors & Investors) -->
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left border-t border-slate-900 pt-12">
-            <div class="p-6 bg-slate-900/50 border border-slate-800/80 rounded-xl">
-                <div class="text-sky-400 text-base font-bold mb-2">⚡ Rapid POS & Checkouts</div>
-                <p class="text-xs text-slate-400 leading-relaxed">Process walk-ins, grooming add-ons, and tip splits in seconds from a tablet or mobile van dashboard.</p>
+      <section class="section section-tight" id="product">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">One connected operation</p>
+            <h2>Built around the way pet-care businesses actually work.</h2>
+            <p>
+              Instead of piecing together calendars, customer records, text
+              messages, payment tools, and spreadsheets, teams get a shared
+              source of truth for the day.
+            </p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card">
+              <span class="feature-number">01</span>
+              <h3>Scheduling that understands the work</h3>
+              <p>
+                Coordinate grooming, boarding, daycare, capacity, staff, and
+                future route-based services.
+              </p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-number">02</span>
+              <h3>One customer and pet record</h3>
+              <p>
+                Keep households, pets, vaccines, care notes, appointments, and
+                communication history connected.
+              </p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-number">03</span>
+              <h3>Messages that do not get missed</h3>
+              <p>
+                Bring customer conversations and follow-up into the daily
+                workflow, with visible incoming alerts.
+              </p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-number">04</span>
+              <h3>A professional public presence</h3>
+              <p>
+                Give each business a branded website, truthful public
+                information, safe media, SEO, and future booking.
+              </p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-number">05</span>
+              <h3>Imports without starting over</h3>
+              <p>
+                Plan for migration from Paw Partner, Pawfinity, MoeGo, Gingr,
+                and other operational systems.
+              </p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-number">06</span>
+              <h3>Physical shops and mobile teams</h3>
+              <p>
+                Support counter operations today and intelligent daily or
+                on-demand mobile routing as the platform grows.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section operator-section">
+        <div class="container operator-grid">
+          <div class="section-heading">
+            <p class="eyebrow">Operator-led</p>
+            <h2>
+              Designed from inside the business, not around a generic SaaS
+              template.
+            </h2>
+            <p>
+              CanineCore is being shaped through firsthand grooming and boarding
+              operations, with infrastructure and security experience behind the
+              build.
+            </p>
+          </div>
+          <div class="operator-note">
+            <p>
+              The objective is straightforward: reduce repetitive work, make the
+              day easier to understand, protect business and customer data, and
+              give independent pet-care operators technology that can grow with
+              them.
+            </p>
+            <strong
+              >Founder-built by Canine Clip N Shine and Seaside Cyber</strong
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Development status</p>
+            <h2>Building deliberately, proving each layer.</h2>
+            <p>
+              No invented launch countdowns or inflated traction. The platform
+              advances as each workflow is validated.
+            </p>
+          </div>
+          <div class="status-grid">
+            <article class="status-card complete">
+              <p class="status-label">Foundation</p>
+              <h3>Core data and security</h3>
+              <p>
+                Tenant isolation, customer and pet records, scheduling
+                foundations, and organization websites.
+              </p>
+            </article>
+            <article class="status-card active">
+              <p class="status-label">Validating now</p>
+              <h3>Owner and staff workflows</h3>
+              <p>
+                Public-site tools, media management, daily operations, and the
+                first complete walkthrough.
+              </p>
+            </article>
+            <article class="status-card">
+              <p class="status-label">Next</p>
+              <h3>Customer journey</h3>
+              <p>
+                Customer accounts, online booking, daily tasks, incoming-message
+                follow-up, and practical imports.
+              </p>
+            </article>
+            <article class="status-card">
+              <p class="status-label">Planned</p>
+              <h3>Operational expansion</h3>
+              <p>
+                Payments, subscriptions, daycare, mobile routing, on-demand
+                service routes, and marketing tools.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-tight">
+        <div class="container partner-panel">
+          <div>
+            <p class="eyebrow">Founder program inquiries</p>
+            <h2>
+              Seeking partners who support careful, real-world product
+              development.
+            </h2>
+            <p>
+              CanineCore is open to relevant startup and founder programs that
+              can help support secure infrastructure, communications, payments,
+              mapping, and a responsible beta.
+            </p>
+          </div>
+          <div class="needs-grid" role="list" aria-label="Areas of interest">
+            <div class="need" role="listitem">Cloud infrastructure</div>
+            <div class="need" role="listitem">Email and SMS delivery</div>
+            <div class="need" role="listitem">Payments and terminals</div>
+            <div class="need" role="listitem">Maps and route optimization</div>
+            <div class="need" role="listitem">Security and observability</div>
+            <div class="need" role="listitem">Founder mentorship</div>
+          </div>
+          <div>
+            <a
+              class="button button-secondary"
+              href="mailto:founder@caninecore.app?subject=CanineCore%20founder%20program"
+            >
+              Contact the founder
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="early-access">
+        <div class="container waitlist-panel">
+          <div>
+            <p class="eyebrow">Early access</p>
+            <h2>Follow the build and help shape what comes next.</h2>
+            <p>
+              Join for occasional product updates and future private-beta
+              testing opportunities.
+            </p>
+          </div>
+
+          <form
+            class="waitlist-form"
+            action="https://submit-form.com/YhW75ms8V"
+            method="post"
+            id="waitlist-form"
+          >
+            <div class="honeypot" aria-hidden="true">
+              <label for="company-website">Leave this field empty</label>
+              <input
+                id="company-website"
+                name="_honeypot"
+                type="text"
+                tabindex="-1"
+                autocomplete="off"
+              />
             </div>
-            <div class="p-6 bg-slate-900/50 border border-slate-800/80 rounded-xl">
-                <div class="text-sky-400 text-base font-bold mb-2">🛡️ Automated No-Show Protection</div>
-                <p class="text-xs text-slate-400 leading-relaxed">Upfront deposit collection and SMS confirmations keep your schedule 100% full without phone tag.</p>
+
+            <div class="form-row">
+              <label class="honeypot" for="waitlist-email"
+                >Business email</label
+              >
+              <input
+                class="email-input"
+                id="waitlist-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="you@yourbusiness.com"
+                required
+              />
+              <button
+                class="button button-primary"
+                id="submit-button"
+                type="submit"
+                disabled
+              >
+                Join early access
+              </button>
             </div>
-            <div class="p-6 bg-slate-900/50 border border-slate-800/80 rounded-xl">
-                <div class="text-sky-400 text-base font-bold mb-2">🐾 Pet Health & Client Hub</div>
-                <p class="text-xs text-slate-400 leading-relaxed">Vaccination records, grooming notes, and coat requirements stored safely in a central owner portal.</p>
-            </div>
-        </section>
+
+            <div
+              class="turnstile-wrap"
+              id="turnstile-slot"
+              aria-live="polite"
+            ></div>
+            <p class="form-message" id="form-message">
+              The security check must complete before submission.
+            </p>
+          </form>
+        </div>
+      </section>
     </main>
 
-<!-- Footer -->
-    <footer class="text-center text-xs text-slate-500 max-w-5xl w-full mx-auto space-y-3 border-t border-slate-900 pt-8">
-        <div class="flex items-center justify-center gap-4">
-            <span>Direct Inquiries: <a href="mailto:founder@caninecore.app" class="text-sky-400 hover:underline">founder@caninecore.app</a></span>
-            <span class="text-slate-800">•</span>
-            <a href="https://www.facebook.com/caninecoreapp" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-slate-400 hover:text-sky-400 transition">
-                <svg class="w-4 h-4 fill-current text-sky-400" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-                <span>Follow us on Facebook</span>
-            </a>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a class="brand" href="/" aria-label="CanineCore home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path
+                d="M22.75 10.5a8.25 8.25 0 1 0 0 11"
+                stroke="#38bdf8"
+                stroke-width="3.25"
+                stroke-linecap="round"
+              />
+              <circle cx="23.5" cy="10.5" r="2.25" fill="#34d399" />
+              <circle cx="23.5" cy="21.5" r="2.25" fill="#f59e0b" />
+            </svg>
+          </span>
+          <span>CanineCore</span>
+        </a>
+        <p class="footer-copy">
+          CanineCore by Seaside Cyber. Built on the Eastern Shore of Virginia.
+        </p>
+        <div class="footer-links">
+          <a href="mailto:founder@caninecore.app">Email</a>
+          <a
+            href="https://www.facebook.com/caninecoreapp"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Facebook</a
+          >
+          <a
+            href="https://seasidecyber.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Seaside Cyber</a
+          >
         </div>
-        <div>
-            CanineCore by <a href="https://seasidecyber.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 underline transition">Seaside Cyber</a>. All rights reserved.
-        </div>
+      </div>
     </footer>
 
-</body>
+    <script>
+      // Replace only this public site key. Never place the Turnstile secret in this file.
+      const TURNSTILE_SITE_KEY = "0x4AAAAAAEGlSKs8S82qMOSk";
+
+      const submitButton = document.getElementById("submit-button");
+      const formMessage = document.getElementById("form-message");
+      const turnstileSlot = document.getElementById("turnstile-slot");
+
+      function setFormMessage(message, isError = false) {
+        formMessage.textContent = message;
+        formMessage.classList.toggle("error", isError);
+      }
+
+      function loadTurnstile() {
+        if (TURNSTILE_SITE_KEY.startsWith("PASTE_")) {
+          setFormMessage(
+            "Early-access signup is being configured. Email founder@caninecore.app in the meantime.",
+            true,
+          );
+          return;
+        }
+
+        window.onTurnstileLoaded = function () {
+          window.turnstile.render(turnstileSlot, {
+            sitekey: TURNSTILE_SITE_KEY,
+            theme: "dark",
+            action: "early_access",
+            callback: function () {
+              submitButton.disabled = false;
+              setFormMessage("Security check complete. You can join the list.");
+            },
+            "expired-callback": function () {
+              submitButton.disabled = true;
+              setFormMessage(
+                "The security check expired. Please complete it again.",
+                true,
+              );
+            },
+            "error-callback": function () {
+              submitButton.disabled = true;
+              setFormMessage(
+                "The security check could not load. Email founder@caninecore.app for early access.",
+                true,
+              );
+            },
+          });
+        };
+
+        const script = document.createElement("script");
+        script.src =
+          "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoaded&render=explicit";
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+      }
+
+      loadTurnstile();
+    </script>
+  </body>
 </html>
