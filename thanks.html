@@ -11,6 +11,8 @@
     />
     <meta name="robots" content="noindex,follow" />
     <meta name="theme-color" content="#07101f" />
+    <link rel="icon" type="image/png" href="/assets/caninecore-logo.png" />
+    <link rel="apple-touch-icon" href="/assets/caninecore-logo.png" />
 
     <!-- Google tag (gtag.js) -->
     <script
@@ -65,8 +67,13 @@
           var(--background);
         color: var(--text);
         font-family:
-          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", sans-serif;
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
       }
 
       .card {
@@ -92,13 +99,16 @@
 
       .brand-mark {
         display: inline-flex;
-        width: 32px;
-        height: 32px;
+        width: 42px;
+        height: 42px;
+        overflow: hidden;
+        border-radius: 12px;
       }
 
-      .brand-mark svg {
+      .brand-mark img {
         width: 100%;
         height: 100%;
+        object-fit: cover;
       }
 
       .confirmation-icon {
@@ -192,16 +202,7 @@
     <main class="card">
       <a class="brand" href="/" aria-label="CanineCore home">
         <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 32 32" fill="none">
-            <path
-              d="M22.75 10.5a8.25 8.25 0 1 0 0 11"
-              stroke="#38bdf8"
-              stroke-width="3.25"
-              stroke-linecap="round"
-            />
-            <circle cx="23.5" cy="10.5" r="2.25" fill="#34d399" />
-            <circle cx="23.5" cy="21.5" r="2.25" fill="#f59e0b" />
-          </svg>
+          <img src="/assets/caninecore-logo.png" alt="" />
         </span>
         <span>CanineCore</span>
       </a>
@@ -218,19 +219,14 @@
 
       <div class="actions">
         <a class="button button-primary" href="/">Back to CanineCore</a>
-        <a
-          class="button button-secondary"
-          href="mailto:founder@caninecore.app"
-        >
+        <a class="button button-secondary" href="mailto:founder@caninecore.app">
           Contact the founder
         </a>
       </div>
 
       <p class="contact">
         Questions? Email
-        <a href="mailto:founder@caninecore.app">
-          founder@caninecore.app
-        </a>
+        <a href="mailto:founder@caninecore.app"> founder@caninecore.app </a>
       </p>
     </main>
 
@@ -240,10 +236,7 @@
         submissionParameters.get("submitted") === "1";
       const conversionKey = "caninecore-waitlist-conversion-recorded";
 
-      if (
-        isConfirmedSubmission &&
-        !sessionStorage.getItem(conversionKey)
-      ) {
+      if (isConfirmedSubmission && !sessionStorage.getItem(conversionKey)) {
         gtag("event", "generate_lead", {
           method: "early_access_waitlist",
         });
