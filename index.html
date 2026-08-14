@@ -1285,21 +1285,10 @@
 
           <form
             class="waitlist-form"
-            action="https://submit-form.com/YhW75ms8V"
+            action="/api/submit"
             method="post"
             id="waitlist-form"
           >
-            <input
-              type="hidden"
-              name="_redirect"
-              value="https://caninecore.app/thanks.html?submitted=1"
-            />
-            <input
-              type="hidden"
-              name="_error"
-              value="https://caninecore.app/#early-access"
-            />
-            <input type="hidden" name="_append" value="false" />
             <div class="honeypot" aria-hidden="true">
               <label for="company-website">Leave this field empty</label>
               <input
@@ -1402,6 +1391,8 @@
       const submitButton = document.getElementById("submit-button");
       const formMessage = document.getElementById("form-message");
       const turnstileSlot = document.getElementById("turnstile-slot");
+      const waitlistForm = document.getElementById("waitlist-form");
+      let turnstileToken = "";
 
       function setFormMessage(message, isError = false) {
         formMessage.textContent = message;
@@ -1422,11 +1413,13 @@
             sitekey: TURNSTILE_SITE_KEY,
             theme: "dark",
             action: "early_access",
-            callback: function () {
+            callback: function (token) {
+              turnstileToken = token;
               submitButton.disabled = false;
               setFormMessage("Security check complete. You can join the list.");
             },
             "expired-callback": function () {
+              turnstileToken = "";
               submitButton.disabled = true;
               setFormMessage(
                 "The security check expired. Please complete it again.",
@@ -1434,6 +1427,7 @@
               );
             },
             "error-callback": function () {
+              turnstileToken = "";
               submitButton.disabled = true;
               setFormMessage(
                 "The security check could not load. Email founder@caninecore.app for early access.",
@@ -1450,6 +1444,42 @@
         script.defer = true;
         document.head.appendChild(script);
       }
+
+      waitlistForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        if (!turnstileToken) {
+          setFormMessage("Please complete the security check first.", true);
+          return;
+        }
+
+        submitButton.disabled = true;
+        setFormMessage("Joining the early-access list...");
+
+        try {
+          const response = await fetch(waitlistForm.action, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: document.getElementById("waitlist-email").value,
+              turnstileToken,
+              honeypot: document.getElementById("company-website").value,
+            }),
+          });
+
+          if (!response.ok) {
+            throw new Error("The signup request was not accepted.");
+          }
+
+          window.location.href = "/thanks.html?submitted=1";
+        } catch (error) {
+          submitButton.disabled = false;
+          setFormMessage(
+            "We could not complete the signup. Please try again or email founder@caninecore.app.",
+            true,
+          );
+        }
+      });
 
       loadTurnstile();
     </script>
