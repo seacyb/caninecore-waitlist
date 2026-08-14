@@ -1,6 +1,6 @@
 const crypto = require("node:crypto");
 const { app } = require("@azure/functions");
-const { TableClient, TableTransaction } = require("@azure/data-tables");
+const { TableClient } = require("@azure/data-tables");
 
 const tableName = "Waitlist";
 
