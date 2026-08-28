@@ -3,4 +3,7 @@
   <url>
     <loc>https://caninecore.app/</loc>
   </url>
+  <url><loc>https://caninecore.app/legal/privacy</loc></url>
+  <url><loc>https://caninecore.app/legal/terms</loc></url>
+  <url><loc>https://caninecore.app/legal/sms-terms</loc></url>
 </urlset>
