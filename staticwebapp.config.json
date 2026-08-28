@@ -2,6 +2,20 @@
   "platform": {
     "apiRuntime": "node:20"
   },
+  "routes": [
+    {
+      "route": "/legal/privacy",
+      "rewrite": "/legal/privacy/index.html"
+    },
+    {
+      "route": "/legal/terms",
+      "rewrite": "/legal/terms/index.html"
+    },
+    {
+      "route": "/legal/sms-terms",
+      "rewrite": "/legal/sms-terms/index.html"
+    }
+  ],
   "navigationFallback": {
     "rewrite": "/index.html",
     "exclude": ["/*.{css,js,png,jpg,jpeg,gif,svg,ico,txt,xml,webp}"]
