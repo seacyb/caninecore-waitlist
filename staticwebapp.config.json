@@ -14,6 +14,10 @@
     {
       "route": "/legal/sms-terms",
       "rewrite": "/legal/sms-terms/index.html"
+    },
+    {
+      "route": "/legal/sms-consent",
+      "rewrite": "/legal/sms-consent/index.html"
     }
   ],
   "navigationFallback": {
