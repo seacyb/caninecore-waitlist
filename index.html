@@ -773,54 +773,6 @@
         color: var(--text-soft);
       }
 
-      .waitlist-form {
-        display: grid;
-        gap: 13px;
-      }
-
-      .form-row {
-        display: grid;
-        gap: 10px;
-        grid-template-columns: 1fr auto;
-      }
-
-      .email-input {
-        min-width: 0;
-        min-height: 50px;
-        padding: 0 15px;
-        border: 1px solid var(--border-bright);
-        border-radius: 10px;
-        background: #07111f;
-        color: var(--text);
-      }
-
-      .email-input::placeholder {
-        color: #6f829b;
-      }
-
-      .turnstile-wrap {
-        min-height: 66px;
-      }
-
-      .form-message {
-        min-height: 22px;
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.78rem;
-      }
-
-      .form-message.error {
-        color: #fda4af;
-      }
-
-      .honeypot {
-        position: absolute;
-        left: -10000px;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-      }
-
       .site-footer {
         margin-top: 96px;
         border-top: 1px solid rgb(148 163 184 / 0.14);
@@ -1284,55 +1236,11 @@
             </p>
           </div>
 
-          <form
-            class="waitlist-form"
-            action="/api/submit"
-            method="post"
-            id="waitlist-form"
-          >
-            <div class="honeypot" aria-hidden="true">
-              <label for="company-website">Leave this field empty</label>
-              <input
-                id="company-website"
-                name="_honeypot"
-                type="text"
-                tabindex="-1"
-                autocomplete="off"
-              />
-            </div>
-
-            <div class="form-row">
-              <label class="honeypot" for="waitlist-email"
-                >Business email</label
-              >
-              <input
-                class="email-input"
-                id="waitlist-email"
-                name="email"
-                type="email"
-                autocomplete="email"
-                placeholder="you@yourbusiness.com"
-                required
-              />
-              <button
-                class="button button-primary"
-                id="submit-button"
-                type="submit"
-                disabled
-              >
-                Join early access
-              </button>
-            </div>
-
-            <div
-              class="turnstile-wrap"
-              id="turnstile-slot"
-              aria-live="polite"
-            ></div>
-            <p class="form-message" id="form-message">
-              The security check must complete before submission.
-            </p>
-          </form>
+          <div>
+            <a class="button button-primary" href="/signup">
+              Join early access
+            </a>
+          </div>
         </div>
       </section>
     </main>
@@ -1388,104 +1296,5 @@
       </div>
     </footer>
 
-    <script>
-      // Replace only this public site key. Never place the Turnstile secret in this file.
-      const TURNSTILE_SITE_KEY = "0x4AAAAAAEGlSKs8S82qMOSk";
-
-      const submitButton = document.getElementById("submit-button");
-      const formMessage = document.getElementById("form-message");
-      const turnstileSlot = document.getElementById("turnstile-slot");
-      const waitlistForm = document.getElementById("waitlist-form");
-      let turnstileToken = "";
-
-      function setFormMessage(message, isError = false) {
-        formMessage.textContent = message;
-        formMessage.classList.toggle("error", isError);
-      }
-
-      function loadTurnstile() {
-        if (TURNSTILE_SITE_KEY.startsWith("PASTE_")) {
-          setFormMessage(
-            "Early-access signup is being configured. Email founder@caninecore.app in the meantime.",
-            true,
-          );
-          return;
-        }
-
-        window.onTurnstileLoaded = function () {
-          window.turnstile.render(turnstileSlot, {
-            sitekey: TURNSTILE_SITE_KEY,
-            theme: "dark",
-            action: "early_access",
-            callback: function (token) {
-              turnstileToken = token;
-              submitButton.disabled = false;
-              setFormMessage("Security check complete. You can join the list.");
-            },
-            "expired-callback": function () {
-              turnstileToken = "";
-              submitButton.disabled = true;
-              setFormMessage(
-                "The security check expired. Please complete it again.",
-                true,
-              );
-            },
-            "error-callback": function () {
-              turnstileToken = "";
-              submitButton.disabled = true;
-              setFormMessage(
-                "The security check could not load. Email founder@caninecore.app for early access.",
-                true,
-              );
-            },
-          });
-        };
-
-        const script = document.createElement("script");
-        script.src =
-          "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoaded&render=explicit";
-        script.async = true;
-        script.defer = true;
-        document.head.appendChild(script);
-      }
-
-      waitlistForm.addEventListener("submit", async function (event) {
-        event.preventDefault();
-
-        if (!turnstileToken) {
-          setFormMessage("Please complete the security check first.", true);
-          return;
-        }
-
-        submitButton.disabled = true;
-        setFormMessage("Joining the early-access list...");
-
-        try {
-          const response = await fetch(waitlistForm.action, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              email: document.getElementById("waitlist-email").value,
-              turnstileToken,
-              honeypot: document.getElementById("company-website").value,
-            }),
-          });
-
-          if (!response.ok) {
-            throw new Error("The signup request was not accepted.");
-          }
-
-          window.location.href = "/thanks.html?submitted=1";
-        } catch (error) {
-          submitButton.disabled = false;
-          setFormMessage(
-            "We could not complete the signup. Please try again or email founder@caninecore.app.",
-            true,
-          );
-        }
-      });
-
-      loadTurnstile();
-    </script>
   </body>
 </html>
